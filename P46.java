@@ -16,12 +16,10 @@ public class Solution {
         int i=p.length-1;
         int tempDays = 0;
         while(i>=0){
-            if(!stack.empty() &&  p[i]<p[stack.peek()]){                
-                tempDays++;                   
+            if(!stack.empty() &&  p[i]<p[stack.peek()]) {                
+                tempDays = Math.max(tempDays + 1, days.pop());
                 stack.pop();
-                days.pop();                    
-            }
-            else{                
+            } else {                
                 stack.push(i);
                 days.push(tempDays);
                 if(tempDays>maxDays){
